@@ -1,5 +1,5 @@
 export const trending = (req, res) => {
-  return res.send("<h1>Hello1</h1>")
+  return res.render("home")
 }
 export const see = (req, res) => {
   console.log(req.params)
