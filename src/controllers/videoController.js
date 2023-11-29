@@ -41,5 +41,14 @@ export const getEdit = (req, res) => {
   return res.render("edit", { pageTitle: `Edit ${video.title}`, video })
 }
 export const postEdit = (req, res) => {
-  return res.render("edit")
+  const { id } = req.params
+  const { title } = req.body
+  videos.map((v) => {
+    if (v.id === Number(id)) {
+      return (v.title = title)
+    } else {
+      return v
+    }
+  })
+  return res.redirect(`/videos/${id}`)
 }
