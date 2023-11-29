@@ -1,9 +1,13 @@
 import Video from "../models/Video"
 
 export const home = (req, res) => {
-  Video.find({}, (err, videos) => {})
+  Video.find({}, (err, videos) => {
+    console.log("errors", err)
+    console.log("videos", videos)
+  })
   return res.render("home", {
     pageTitle: "Home",
+    videos: [],
   })
 }
 export const watch = (req, res) => {
