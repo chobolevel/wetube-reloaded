@@ -4,7 +4,7 @@ let videos = [
     rating: 5,
     comments: 2,
     createdAt: "2 Minutes ago",
-    videos: 59,
+    views: 59,
     id: 1,
   },
   {
@@ -12,7 +12,7 @@ let videos = [
     rating: 5,
     comments: 2,
     createdAt: "2 Minutes ago",
-    videos: 59,
+    views: 59,
     id: 2,
   },
   {
@@ -20,7 +20,7 @@ let videos = [
     rating: 5,
     comments: 2,
     createdAt: "2 Minutes ago",
-    videos: 59,
+    views: 59,
     id: 3,
   },
 ]
@@ -30,10 +30,10 @@ export const trending = (req, res) => {
     videos,
   })
 }
-export const see = (req, res) => {
+export const watch = (req, res) => {
   const { id } = req.params
-  const findVideo = videos.find((v) => v.id === Number(id))
-  return res.render("watch", { pageTitle: findVideo.title })
+  const video = videos.find((v) => v.id === Number(id))
+  return res.render("watch", { pageTitle: video.title, video })
 }
 export const edit = (req, res) => {
   return res.render("edit")
