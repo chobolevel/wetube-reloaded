@@ -35,16 +35,11 @@ export const watch = (req, res) => {
   const video = videos.find((v) => v.id === Number(id))
   return res.render("watch", { pageTitle: video.title, video })
 }
-export const edit = (req, res) => {
+export const getEdit = (req, res) => {
+  const { id } = req.params
+  const video = videos.find((v) => v.id === Number(id))
+  return res.render("edit", { pageTitle: `Edit ${video.title}`, video })
+}
+export const postEdit = (req, res) => {
   return res.render("edit")
-}
-export const search = (req, res) => {
-  return res.send("Search")
-}
-export const upload = (req, res) => {
-  return res.send("Upload Video")
-}
-export const deleteVideo = (req, res) => {
-  console.log(req.params)
-  return res.send("Delete Video")
 }
